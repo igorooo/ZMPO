@@ -26,6 +26,8 @@ public:
   void add_clone();
   void get_info();
   void set_val_in_array();
+  void test_v();
+  void v_test(CTable VAL);
 
   Menu();
   ~Menu();

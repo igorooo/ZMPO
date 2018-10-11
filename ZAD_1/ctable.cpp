@@ -76,6 +76,7 @@ void CTable::set_name(string S_NAME){
   this->S_NAME = S_NAME;
 }
 
+
 CTable::CTable(){
   this->ARRAY = new int[this->DEFAULT_ARRAY_SIZE];
   this->ARRAY_SIZE = this->DEFAULT_ARRAY_SIZE;

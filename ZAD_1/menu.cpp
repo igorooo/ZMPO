@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <unistd.h>
@@ -22,11 +22,15 @@ void Menu::start_screen(){
     cout<<"To add clone of object enter (6)"<<endl;
     cout<<"To get infos about object enter (7)"<<endl;
     cout<<"To set value in object's array enter (8)"<<endl;
+    cout<<"To start v_test enter (0)"<<endl;
     cout<<"To exit enter (9)"<<endl;
 
     cin>>OPT;
 
     switch ( OPT ) {
+      case 0:
+      this->test_v();
+      break;
       case 1:
       this->add_obj();
       break;
@@ -62,28 +66,70 @@ void Menu::start_screen(){
   }
 }
 
+void Menu::v_test(CTable VAL){
+
+  VAL.change_array_size(1);
+
+}
+
+void Menu::test_v(){
+
+  system("clear");
+
+  cout<<"Please enter object's position: ";
+
+  int POS;
+  cin>>POS;
+
+  if( POS >= this->TABLE.size() || POS < 0){
+    cout<<"Wrong posiotion!"<<endl;
+    sleep(2);
+  }
+
+  else{
+    v_test(*(this->TABLE[POS])); 
+    sleep(3);
+  }
+
+}
+
 void Menu::add_obj(){
 
   system("clear");
   string S_NAME;
-  int ARRAY_SIZE;
+  int ARRAY_SIZE,AMOUNT;
 
-  cout<<"Please enter new object's name: ";
-  cin>>S_NAME;
+  cout<<"How many objects you want to add?: ";
+  cin>>AMOUNT;
 
-  cout<<"Please enter new object's array length: ";
-  cin>>ARRAY_SIZE;
-
-  if(ARRAY_SIZE < 0){
-    cout<<"Only positive integers!";
-    sleep(2);
-    return;
+  if(AMOUNT < 0){
+    cout<<"Only positive integers!"<<endl;;
+    sleep(1);
   }
 
   else{
-    this->TABLE.push_back(new CTable(S_NAME,ARRAY_SIZE));
-    cout<<"Sucess"<<endl;
-    sleep(3);
+
+    for( int i = 0; i < AMOUNT; i++){
+      system("clear");
+
+      cout<<"Object no. "<<i<<": "<<endl;
+        cout<<"Please enter new object's name: ";
+        cin>>S_NAME;
+
+        cout<<"Please enter new object's array length: ";
+        cin>>ARRAY_SIZE;
+
+        if(ARRAY_SIZE < 0){
+          cout<<"Only positive integers!"<<endl;;
+          sleep(1);
+        }
+
+        else{
+          this->TABLE.push_back(new CTable(S_NAME,ARRAY_SIZE));
+          cout<<"Sucess"<<endl;
+          sleep(1);
+       }
+    }
   }
 }
 
@@ -124,6 +170,7 @@ void Menu::rm_obj(){
   }
 
   else{
+    delete this->TABLE[POS];
     this->TABLE.erase( TABLE.begin() + POS);
     cout<<"Success"<<endl;
     sleep(3);
@@ -133,6 +180,10 @@ void Menu::rm_obj(){
 void Menu::rm_all_obj(){
 
   system("clear");
+
+  for(int i = 0; i < this->TABLE.size(); i++){
+    delete this->TABLE[i];
+  }
   this->TABLE.clear();
   cout<<"Success"<<endl;
   sleep(3);
