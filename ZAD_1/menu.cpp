@@ -244,3 +244,7 @@ void Menu::set_val_in_array(){
 Menu::Menu(){
   this->start_screen();
 }
+
+Menu::~Menu(){
+  this->TABLE.clear();
+}

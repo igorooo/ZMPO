@@ -27,6 +27,7 @@ int main(int argc, char const *argv[]) {
   delete OBJ; */
 
   Menu *menu = new Menu();
+  delete menu;
 
 
   return 0;

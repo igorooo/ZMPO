@@ -28,6 +28,7 @@ public:
   void set_val_in_array();
 
   Menu();
+  ~Menu();
 
 
 };
