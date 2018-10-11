@@ -1,4 +1,9 @@
+#ifndef _ctable_h
+#define _ctable_h
+
 #include <iostream>
+
+
 
 using namespace std;
 
@@ -13,8 +18,8 @@ private:
 
 public:
 
-  void change_array_size(int NEW_SIZE);
-  void set_array_pos(int POS, int VALUE);
+  string change_array_size(int NEW_SIZE);
+  string set_array_pos(int POS, int VALUE);
   int ret_array_pos(int POS);
   int* ret_array();
   int ret_array_size();
@@ -30,3 +35,5 @@ public:
 
 
 };
+
+#endif

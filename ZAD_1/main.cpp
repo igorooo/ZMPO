@@ -1,14 +1,18 @@
 #include <iostream>
 #include <cstring>
 #include <sstream>
+#include "menu.h"
 #include "ctable.h"
+
+//g++ -o test main.cpp ctable.h ctable.cpp menu.h menu.cpp
 
 using namespace std;
 
 
 int main(int argc, char const *argv[]) {
 
-  cout<<"Yo"<<endl;
+
+  /*
   CTable obj;
   cout<<obj.info()<<endl;
 
@@ -18,6 +22,11 @@ int main(int argc, char const *argv[]) {
   delete obj1;
   cout<<"pp"<<endl;
 
+  CTable *OBJ = new CTable("piesek", 'a');
+  cout<<OBJ->info()<<endl;
+  delete OBJ; */
+
+  Menu *menu = new Menu();
 
 
   return 0;
