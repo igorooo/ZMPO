@@ -101,9 +101,29 @@ CTable::CTable(string S_NAME,int ARRAY_SIZE){
 }
 
 CTable::CTable(CTable &PATTERN){
+  cout<<"1 entered"<<endl;
   this->S_NAME = PATTERN.S_NAME + "_copy";
-  this->ARRAY = PATTERN.ARRAY;
-  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE;
+
+  cout<<"2 entered"<<endl;
+
+  int SIZE = PATTERN.ret_array_size();
+  cout<<PATTERN.ret_array_size()<<endl;
+
+  cout<<"3 entered"<<endl;
+
+  int *TAB = new int[SIZE];
+
+  cout<<"4 entered"<<endl;
+
+  this->ARRAY = TAB;
+  //this->ARRAY = new int[SIZE];
+
+  cout<<"5 entered"<<endl;
+
+  for( int i = 0; i < SIZE; i++){
+    this->set_array_pos(i, PATTERN.ret_array_pos(i));
+  }
+  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE; 
 
   cout<<"kopiuj: '"<<this->S_NAME<<"'"<<endl;
 }
