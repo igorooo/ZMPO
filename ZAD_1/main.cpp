@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
 
 
 
-  CTable obj;
+/*  CTable obj;
   cout<<obj.change_array_size(5)<<endl;
 
   v_test(obj);
