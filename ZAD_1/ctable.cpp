@@ -10,14 +10,15 @@ string CTable::change_array_size(int NEW_SIZE){
   if( NEW_SIZE < 0){
     return "OnlyPositiveNumbers";
   }
+
   int *NEW_ARRAY = new int[NEW_SIZE];
 
-  for( int i = 0; i < DEFAULT_ARRAY_SIZE; i++){
+  for( int i = 0; i < NEW_SIZE; i++){
     NEW_ARRAY[i] = this->ARRAY[i];
   }
 
   this->ARRAY = NEW_ARRAY;
-  return "Success";
+  return "SuccessTT";
 }
 
 string CTable::set_array_pos(int POS, int VALUE){
@@ -44,8 +45,15 @@ int CTable::ret_array_size(){
 }
 
 void CTable::clone(CTable &PATTERN){
-  this->ARRAY = PATTERN.ARRAY;
+  this->S_NAME = PATTERN.S_NAME + "_copy";
+  int SIZE = PATTERN.ret_array_size();
+  this->ARRAY = new int[SIZE];
+
+  for( int i = 0; i < SIZE; i++){
+    this->set_array_pos(i, PATTERN.ret_array_pos(i));
+  }
   this->ARRAY_SIZE = PATTERN.ARRAY_SIZE;
+  cout<<"kopiuj: '"<<this->S_NAME<<"'"<<endl;
 }
 
 string CTable::info(){
@@ -101,30 +109,15 @@ CTable::CTable(string S_NAME,int ARRAY_SIZE){
 }
 
 CTable::CTable(CTable &PATTERN){
-  cout<<"1 entered"<<endl;
+
   this->S_NAME = PATTERN.S_NAME + "_copy";
-
-  cout<<"2 entered"<<endl;
-
   int SIZE = PATTERN.ret_array_size();
-  cout<<PATTERN.ret_array_size()<<endl;
-
-  cout<<"3 entered"<<endl;
-
-  int *TAB = new int[SIZE];
-
-  cout<<"4 entered"<<endl;
-
-  this->ARRAY = TAB;
-  //this->ARRAY = new int[SIZE];
-
-  cout<<"5 entered"<<endl;
+  this->ARRAY = new int[SIZE];
 
   for( int i = 0; i < SIZE; i++){
     this->set_array_pos(i, PATTERN.ret_array_pos(i));
   }
-  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE; 
-
+  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE;
   cout<<"kopiuj: '"<<this->S_NAME<<"'"<<endl;
 }
 
