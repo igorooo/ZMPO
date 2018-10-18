@@ -6,25 +6,27 @@
 
 //g++ -o test main.cpp ctable.h ctable.cpp menu.h menu.cpp
 
-using namespace std;
+using namespace std;//s
 
 
 void  v_test(CTable cArg)
 {
-  cArg.change_array_size(1);
+  cout<<"v_test ENTERED"<<endl;
+  cArg.change_array_size(2);
+
 }
 
 
 int main(int argc, char const *argv[]) {
 
 
+
   CTable obj;
-  cout<<obj.change_array_size(5)<<endl;;
 
   v_test(obj);
+  return 0;
 
-return 0;
-  /*
+/*
   CTable obj;
   cout<<obj.info()<<endl;
 

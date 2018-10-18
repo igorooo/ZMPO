@@ -9,7 +9,7 @@ using namespace std;
 
 void Menu::start_screen(){
 
-  int OPT = 0;
+  int OPT = 0; //option
 
   while( OPT != 9){
 
@@ -87,7 +87,7 @@ void Menu::test_v(){
   }
 
   else{
-    v_test(*(this->TABLE[POS])); 
+    v_test(*(this->TABLE[POS]));
     sleep(3);
   }
 
