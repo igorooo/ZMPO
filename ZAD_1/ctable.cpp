@@ -6,6 +6,7 @@
 using namespace std;
 
 
+
 string CTable::change_array_size(int NEW_SIZE){
   if( NEW_SIZE < 0){
     return "OnlyPositiveNumbers";
@@ -123,7 +124,7 @@ CTable::CTable(CTable &PATTERN){
   for( int i = 0; i < SIZE; i++){
     this->set_array_pos(i, PATTERN.ret_array_pos(i));
   }
-  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE; 
+  this->ARRAY_SIZE = PATTERN.ARRAY_SIZE;
 
   cout<<"kopiuj: '"<<this->S_NAME<<"'"<<endl;
 }
